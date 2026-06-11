@@ -1,0 +1,167 @@
+# PrimeNest Global Frontend Design System
+
+## Brand Direction
+
+Luxury editorial aesthetic inspired by:
+* Dior Maison
+* Louis Vuitton hospitality
+* Aesop
+* Loro Piana
+* High-end Asian wellness brands
+
+Mood:
+* Quiet luxury
+* Premium
+* Minimal
+* Modern
+* Clean
+* Structured
+* Trustworthy
+
+Avoid:
+* Generic AI website aesthetic
+* Overdesigned layouts
+* Heavy gradients
+* Neon colors
+* Alibaba supplier styling
+* Cheap supplement visuals
+* Crowded sections
+
+---
+
+## Typography
+
+Use elegant serif headlines paired with clean sans-serif body text.
+
+Headlines:
+* Large spacing
+* Strong hierarchy
+* Clean line breaks
+* Luxury editorial feel
+
+Body text:
+* Easy readability
+* Clean spacing
+* Minimal clutter
+
+Avoid random font sizing.
+
+Use consistent typography scale.
+
+---
+
+## Layout System
+
+Use:
+* Large breathing space
+* Structured grids
+* Consistent spacing
+* Premium whitespace
+* Clean section separation
+
+Use 8px spacing system.
+
+Avoid cramped layouts.
+
+---
+
+## Color System
+
+Primary palette:
+* Warm black
+* Champagne gold
+* Soft ivory
+* Warm beige
+* Neutral stone tones
+
+Avoid:
+* Bright red
+* Neon gold
+* Pure black everywhere
+* Harsh contrast
+
+---
+
+## Components
+
+Buttons:
+* Soft hover transitions
+* Premium feel
+* Rounded but refined
+* Smooth animations
+
+Cards:
+* Soft shadows
+* Elegant borders
+* Editorial spacing
+* Consistent hierarchy
+
+Forms:
+* Minimal
+* Luxury styling
+* Clear spacing
+* High readability
+
+---
+
+## Animation Rules
+
+Use Framer Motion for all animations.
+
+Apply:
+* Scroll fade reveals
+* Staggered card reveals
+* Smooth hover transitions
+* Soft hero entrance animations
+
+Animations should feel:
+* Calm
+* Premium
+* Smooth
+* Expensive
+
+Avoid flashy motion.
+
+---
+
+## Product Photography Direction
+
+Use:
+* Realistic bird nest textures
+* Warm natural lighting
+* Editorial product framing
+* Luxury hospitality mood
+
+Avoid:
+* CGI appearance
+* Plastic textures
+* Over-whitened nests
+* Fake luxury props
+
+Preserve:
+* Natural fiber texture
+* Handmade edges
+* Rice-white tones
+* Authentic realism
+
+---
+
+## UX Rules
+
+Every section should support:
+* Trust
+* Clarity
+* Conversion
+* Source transparency
+
+Prioritize:
+* Mobile responsiveness
+* Fast readability
+* Strong CTA visibility
+* Luxury presentation
+
+Avoid:
+* Too many CTA buttons
+* Visual clutter
+* Inconsistent spacing
+* Random animations

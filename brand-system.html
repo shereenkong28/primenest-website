@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PrimeNest Global — Brand System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --black:     #111111;
+    --ivory:     #F8F5EF;
+    --warm-white:#FCFBF8;
+    --gold:      #C8A96B;
+    --beige:     #E8DED1;
+    --taupe:     #B7A89A;
+    --olive:     #4F5B47;
+    --bronze:    #8C6E4A;
+    --grey:      #8A847C;
+    --serif:     'Cormorant Garamond', Georgia, serif;
+    --sans:      'Inter', Helvetica Neue, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--warm-white);
+    color: var(--black);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--black);
+    color: var(--ivory);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 80px;
+  }
+  .cover-eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+  }
+  .cover h1 {
+    font-family: var(--serif);
+    font-size: clamp(52px, 8vw, 96px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -.01em;
+    margin-bottom: 24px;
+  }
+  .cover h1 em { font-style: italic; color: var(--gold); }
+  .cover-sub {
+    font-size: 13px;
+    color: var(--taupe);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 80px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 48px;
+    border-top: 1px solid #2a2a2a;
+    padding-top: 32px;
+    font-size: 12px;
+    color: var(--grey);
+    letter-spacing: .08em;
+  }
+  .cover-meta span strong { color: var(--taupe); display: block; font-weight: 500; }
+
+  /* ── NAV SIDEBAR ── */
+  .layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+  .sidebar {
+    background: var(--black);
+    color: var(--taupe);
+    padding: 56px 32px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  .sidebar-logo {
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--ivory);
+    letter-spacing: .06em;
+    margin-bottom: 48px;
+    display: block;
+  }
+  .sidebar-logo span { color: var(--gold); }
+  .nav-group { margin-bottom: 32px; }
+  .nav-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #3a3a3a;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .nav-link {
+    display: block;
+    font-size: 12px;
+    color: var(--grey);
+    text-decoration: none;
+    padding: 5px 0;
+    letter-spacing: .04em;
+    transition: color .2s;
+    border-left: 1px solid transparent;
+    padding-left: 12px;
+    margin-left: -12px;
+  }
+  .nav-link:hover { color: var(--ivory); border-left-color: var(--gold); }
+
+  /* ── MAIN CONTENT ── */
+  .main { padding: 80px 72px; max-width: 960px; }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 112px; scroll-margin-top: 40px; }
+  .section-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 32px;
+    letter-spacing: -.01em;
+  }
+  .section-title em { font-style: italic; }
+  .section-intro {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+    max-width: 640px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+  .divider {
+    border: none;
+    border-top: 1px solid var(--beige);
+    margin: 64px 0;
+  }
+
+  /* ── RULE BLOCKS ── */
+  .rule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 48px; }
+  .rule-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-bottom: 48px; }
+  .rule-cell {
+    background: var(--ivory);
+    padding: 32px;
+  }
+  .rule-cell-dark { background: var(--black); color: var(--ivory); }
+  .rule-number {
+    font-family: var(--serif);
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--beige);
+    display: block;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .rule-cell-dark .rule-number { color: #2a2a2a; }
+  .rule-heading {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .rule-cell-dark .rule-heading { color: var(--gold); }
+  .rule-body { font-size: 13px; color: #666; line-height: 1.7; }
+  .rule-cell-dark .rule-body { color: var(--taupe); }
+
+  /* ── COLOR SWATCHES ── */
+  .swatch-row { display: flex; gap: 2px; margin-bottom: 8px; }
+  .swatch {
+    flex: 1;
+    height: 80px;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px 12px;
+  }
+  .swatch-label { font-size: 10px; letter-spacing: .08em; }
+  .swatch-name { font-weight: 600; display: block; }
+  .swatch-hex { color: rgba(0,0,0,.45); }
+  .swatch-hex-light { color: rgba(255,255,255,.5); }
+
+  /* ── TYPOGRAPHY SPECIMENS ── */
+  .type-specimen { margin-bottom: 48px; border-left: 2px solid var(--beige); padding-left: 32px; }
+  .type-specimen-h1 { font-family: var(--serif); font-size: 64px; font-weight: 300; line-height: 1.05; letter-spacing: -.02em; margin-bottom: 8px; }
+  .type-specimen-h2 { font-family: var(--serif); font-size: 40px; font-weight: 300; line-height: 1.1; margin-bottom: 8px; }
+  .type-specimen-h3 { font-family: var(--serif); font-size: 24px; font-weight: 400; line-height: 1.3; margin-bottom: 8px; }
+  .type-meta { font-size: 11px; color: var(--taupe); letter-spacing: .1em; text-transform: uppercase; }
+
+  /* ── DO / DON'T ── */
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 48px; }
+  .do-block { background: #F0F4EE; padding: 32px; }
+  .dont-block { background: #F6EEEE; padding: 32px; }
+  .do-label { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--olive); margin-bottom: 16px; display: block; }
+  .dont-label { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #a05050; margin-bottom: 16px; display: block; }
+  .do-list, .dont-list { list-style: none; font-size: 13px; line-height: 2; color: #444; }
+  .do-list li::before { content: "→ "; color: var(--olive); font-weight: 600; }
+  .dont-list li::before { content: "✕ "; color: #a05050; font-weight: 600; }
+
+  /* ── LOGO ZONES ── */
+  .logo-zone {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 48px;
+  }
+  .logo-cell {
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .logo-cell-light { background: var(--ivory); }
+  .logo-cell-dark { background: var(--black); }
+  .logo-cell-gold { background: var(--gold); }
+  .logo-wordmark {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+  .logo-wordmark-gold { color: var(--gold); }
+  .logo-wordmark-ivory { color: var(--ivory); }
+  .logo-wordmark-black { color: var(--black); }
+  .logo-mark {
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: .05em;
+  }
+  .logo-cell-label { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--taupe); margin-top: 8px; }
+  .logo-cell-dark .logo-cell-label { color: #3a3a3a; }
+
+  /* ── BRAND ARCHITECTURE ── */
+  .arch-tree { margin-bottom: 48px; }
+  .arch-master {
+    background: var(--black);
+    color: var(--ivory);
+    padding: 32px 40px;
+    margin-bottom: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .arch-master-name { font-family: var(--serif); font-size: 28px; font-weight: 300; }
+  .arch-master-tag { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  .arch-sub-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+  .arch-sub {
+    padding: 28px 24px;
+    border-left: 3px solid var(--gold);
+    background: var(--ivory);
+  }
+  .arch-sub-name { font-family: var(--serif); font-size: 16px; font-weight: 400; margin-bottom: 6px; }
+  .arch-sub-desc { font-size: 11px; color: var(--grey); line-height: 1.6; }
+
+  /* ── SPEC TABLE ── */
+  .spec-table { width: 100%; border-collapse: collapse; margin-bottom: 48px; }
+  .spec-table th {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--grey);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--beige);
+  }
+  .spec-table td {
+    font-size: 13px;
+    padding: 16px;
+    border-bottom: 1px solid var(--beige);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .spec-table tr:last-child td { border-bottom: none; }
+  .spec-table td:first-child { font-weight: 500; color: var(--black); width: 200px; }
+  .spec-table td:last-child { color: #555; }
+
+  /* ── PACKAGING HIERARCHY ── */
+  .pack-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 48px; }
+  .pack-cell { background: var(--ivory); padding: 36px; }
+  .pack-tier {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .pack-name { font-family: var(--serif); font-size: 22px; font-weight: 400; margin-bottom: 16px; }
+  .pack-specs { font-size: 12px; color: var(--grey); line-height: 2; }
+  .pack-specs li { list-style: none; }
+  .pack-specs li::before { content: "— "; color: var(--gold); }
+
+  /* ── CONTENT HIERARCHY ── */
+  .content-stack { margin-bottom: 48px; }
+  .content-step {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--beige);
+  }
+  .content-step:last-child { border-bottom: none; }
+  .step-num {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--beige);
+    line-height: 1;
+    min-width: 48px;
+  }
+  .step-body {}
+  .step-title { font-size: 14px; font-weight: 600; letter-spacing: .06em; margin-bottom: 4px; }
+  .step-desc { font-size: 13px; color: var(--grey); line-height: 1.6; }
+
+  /* ── PROMPT BLOCK ── */
+  .prompt-block {
+    background: var(--black);
+    color: var(--ivory);
+    padding: 36px 40px;
+    margin-bottom: 32px;
+    border-left: 3px solid var(--gold);
+  }
+  .prompt-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .prompt-text { font-family: var(--serif); font-size: 17px; font-weight: 300; line-height: 1.7; color: var(--ivory); }
+  .prompt-text em { color: var(--gold); font-style: italic; }
+
+  /* ── VOICE BLOCK ── */
+  .voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 48px; }
+  .voice-cell { padding: 28px 32px; background: var(--ivory); }
+  .voice-cell-bad { background: #F6EEEE; }
+  .voice-label-good { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--olive); display: block; margin-bottom: 12px; }
+  .voice-label-bad  { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #a05050; display: block; margin-bottom: 12px; }
+  .voice-example { font-family: var(--serif); font-size: 18px; font-weight: 300; line-height: 1.5; color: var(--black); }
+  .voice-cell-bad .voice-example { color: #7a4040; }
+
+  /* ── MASTER RULE ── */
+  .master-rule {
+    background: var(--black);
+    padding: 72px 80px;
+    margin-top: 112px;
+    text-align: center;
+  }
+  .master-rule-eyebrow { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; display: block; }
+  .master-rule-headline { font-family: var(--serif); font-size: 48px; font-weight: 300; color: var(--ivory); line-height: 1.2; margin-bottom: 24px; }
+  .master-rule-headline em { color: var(--gold); font-style: italic; }
+  .master-rule-body { font-size: 14px; color: var(--taupe); max-width: 560px; margin: 0 auto; line-height: 1.8; }
+
+  /* ── UI SYSTEM ── */
+  .ui-demo { background: var(--ivory); padding: 48px; margin-bottom: 48px; }
+  .ui-btn-row { display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
+  .ui-btn-primary {
+    background: var(--black);
+    color: var(--ivory);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border: none;
+    cursor: pointer;
+  }
+  .ui-btn-secondary {
+    background: transparent;
+    color: var(--black);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 13px 32px;
+    border: 1px solid var(--black);
+    cursor: pointer;
+  }
+  .ui-btn-ghost {
+    background: transparent;
+    color: var(--gold);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 13px 32px;
+    border: 1px solid var(--gold);
+    cursor: pointer;
+  }
+  .ui-form { max-width: 480px; }
+  .ui-field { margin-bottom: 20px; }
+  .ui-label { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--grey); display: block; margin-bottom: 8px; }
+  .ui-input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--taupe);
+    background: transparent;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--black);
+    padding: 10px 0;
+    outline: none;
+  }
+  .ui-input::placeholder { color: var(--beige); }
+  .ui-card-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .ui-card { background: var(--warm-white); }
+  .ui-card-img { height: 160px; background: var(--beige); }
+  .ui-card-body { padding: 20px; }
+  .ui-card-tag { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  .ui-card-name { font-family: var(--serif); font-size: 18px; font-weight: 300; margin: 6px 0; }
+  .ui-card-price { font-size: 12px; color: var(--grey); }
+
+  /* ── MOTION SYSTEM ── */
+  .motion-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 48px; }
+  .motion-cell { background: var(--ivory); padding: 32px; }
+  .motion-timing { font-family: var(--serif); font-size: 32px; font-weight: 300; color: var(--black); margin-bottom: 4px; }
+  .motion-desc { font-size: 12px; color: var(--grey); }
+
+  /* ── PRINT ── */
+  @media print {
+    .sidebar { display: none; }
+    .layout { grid-template-columns: 1fr; }
+    .main { padding: 40px; }
+    .cover { page-break-after: always; }
+    .section { page-break-inside: avoid; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .main { padding: 40px 24px; }
+    .cover { padding: 40px; }
+    .rule-grid, .rule-grid-3, .do-dont, .logo-zone,
+    .arch-sub-row, .pack-grid, .voice-grid,
+    .motion-row, .ui-card-row { grid-template-columns: 1fr; }
+    .cover-meta { flex-wrap: wrap; gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     COVER
+══════════════════════════════════════════════════════ -->
+<div class="cover">
+  <p class="cover-eyebrow">PrimeNest Global — Confidential Brand Document</p>
+  <h1>Global <em>Luxury</em><br>Brand System</h1>
+  <p class="cover-sub">Master Brand Guidelines · Version 1.0</p>
+  <div class="cover-meta">
+    <span><strong>Company</strong>PrimeNest Global Sdn Bhd</span>
+    <span><strong>Category</strong>Premium Edible Bird Nest Export</span>
+    <span><strong>Origin</strong>Kelantan, Malaysia</span>
+    <span><strong>Issued</strong>2026</span>
+    <span><strong>Markets</strong>CN · SG · TW · BN · ME · NA · EU</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     LAYOUT
+══════════════════════════════════════════════════════ -->
+<div class="layout">
+
+<!-- SIDEBAR NAV -->
+<nav class="sidebar">
+  <span class="sidebar-logo">Prime<span>Nest</span> Global</span>
+
+  <div class="nav-group">
+    <span class="nav-label">Foundation</span>
+    <a class="nav-link" href="#brand-strategy">Brand Strategy</a>
+    <a class="nav-link" href="#brand-architecture">Brand Architecture</a>
+    <a class="nav-link" href="#archetype">Brand Archetype</a>
+  </div>
+
+  <div class="nav-group">
+    <span class="nav-label">Visual Identity</span>
+    <a class="nav-link" href="#logo-system">Logo System</a>
+    <a class="nav-link" href="#color">Color Palette</a>
+    <a class="nav-link" href="#typography">Typography</a>
+  </div>
+
+  <div class="nav-group">
+    <span class="nav-label">Design System</span>
+    <a class="nav-link" href="#layout">Layout Principles</a>
+    <a class="nav-link" href="#ui-system">UI System</a>
+    <a class="nav-link" href="#motion">Motion System</a>
+    <a class="nav-link" href="#print">Print System</a>
+  </div>
+
+  <div class="nav-group">
+    <span class="nav-label">Production</span>
+    <a class="nav-link" href="#photography">Photography</a>
+    <a class="nav-link" href="#packaging">Packaging</a>
+    <a class="nav-link" href="#social">Social Media</a>
+    <a class="nav-link" href="#content-hierarchy">Content Hierarchy</a>
+  </div>
+
+  <div class="nav-group">
+    <span class="nav-label">Messaging</span>
+    <a class="nav-link" href="#voice">Tone of Voice</a>
+    <a class="nav-link" href="#trust">Trust Assets</a>
+    <a class="nav-link" href="#ai-prompts">AI Prompt Rules</a>
+  </div>
+
+  <div class="nav-group">
+    <span class="nav-label">Governance</span>
+    <a class="nav-link" href="#master-rule">Master Rule</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+
+<!-- ═══════════════════════════════════════════
+     01 — BRAND STRATEGY
+════════════════════════════════════════════ -->
+<section class="section" id="brand-strategy">
+  <p class="section-eyebrow">01 — Foundation</p>
+  <h2 class="section-title">Brand <em>Strategy</em></h2>
+  <p class="section-intro">PrimeNest Global is a direct-source Malaysian edible bird nest exporter operating owner-managed swiftlet houses in Kelantan since 2004. The brand serves international wholesale buyers, importers, luxury retailers, and corporate gifting clients across Asia, the Middle East, and Western markets.</p>
+
+  <div class="rule-grid">
+    <div class="rule-cell rule-cell-dark">
+      <span class="rule-number">01</span>
+      <p class="rule-heading">Brand Promise</p>
+      <p class="rule-body">Traceable, handcrafted Malaysian bird nest — from our swiftlet houses to your door. No intermediaries. No ambiguity.</p>
+    </div>
+    <div class="rule-cell">
+      <span class="rule-number">02</span>
+      <p class="rule-heading">Brand Position</p>
+      <p class="rule-body">Premium direct-source exporter. Not a broker. Not a trader. The owner is the farmer. Every nest is traceable to its origin house.</p>
+    </div>
+    <div class="rule-cell">
+      <span class="rule-number">03</span>
+      <p class="rule-heading">Core Belief</p>
+      <p class="rule-body">Luxury begins at the source. Transparency is the ultimate premium signal in an industry built on opacity.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <span class="rule-number">04</span>
+      <p class="rule-heading">Brand Character</p>
+      <p class="rule-body">Quiet confidence. Restrained elegance. Operational precision. The kind of supplier that says less and proves more.</p>
+    </div>
+  </div>
+
+  <div class="do-dont">
+    <div class="do-block">
+      <span class="do-label">✓ PrimeNest Feels Like</span>
+      <ul class="do-list">
+        <li>Dior Beauty editorial restraint</li>
+        <li>Loro Piana material honesty</li>
+        <li>Aesop product clarity</li>
+        <li>Apple presentation discipline</li>
+        <li>High-end Asian wellness brands</li>
+        <li>A luxury annual report</li>
+        <li>A trusted Swiss institution</li>
+      </ul>
+    </div>
+    <div class="dont-block">
+      <span class="dont-label">✕ PrimeNest Never Feels Like</span>
+      <ul class="dont-list">
+        <li>Traditional Chinese medicine store</li>
+        <li>Red-and-gold CNY aesthetics</li>
+        <li>Alibaba wholesale listing</li>
+        <li>Cheap supplement packaging</li>
+        <li>Fake CGI product renders</li>
+        <li>Busy ecommerce layout</li>
+        <li>Overdesigned luxury</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     02 — BRAND ARCHITECTURE
+════════════════════════════════════════════ -->
+<section class="section" id="brand-architecture">
+  <p class="section-eyebrow">02 — Architecture</p>
+  <h2 class="section-title">Brand <em>Architecture</em></h2>
+  <p class="section-intro">A structured product line hierarchy prevents SKU branding chaos as the company scales. Every sub-brand lives under the PrimeNest Global master brand and inherits its visual language while carrying a distinct positioning role.</p>
+
+  <div class="arch-tree">
+    <div class="arch-master">
+      <div>
+        <div class="arch-master-name">PrimeNest Global</div>
+        <div style="font-size:12px;color:var(--taupe);margin-top:4px;">Master Brand · Owner-operated source · Kelantan, Malaysia</div>
+      </div>
+      <span class="arch-master-tag">Master Brand</span>
+    </div>
+    <div class="arch-sub-row">
+      <div class="arch-sub">
+        <div class="arch-sub-name">PrimeNest Reserve</div>
+        <div class="arch-sub-desc">Ultra-premium gifting collections. Hand-selected A-grade nests. For luxury retail, high-net-worth gifting, and premium distributors.</div>
+      </div>
+      <div class="arch-sub">
+        <div class="arch-sub-name">PrimeNest Signature</div>
+        <div class="arch-sub-desc">Core export-grade dry nests. Consistent quality, reliable supply. The workhorse SKU for established importer relationships.</div>
+      </div>
+      <div class="arch-sub">
+        <div class="arch-sub-name">PrimeNest Heritage</div>
+        <div class="arch-sub-desc">Premium cave nest collections. Wild-sourced. Positioned as a rarer, provenance-led alternative to house nests.</div>
+      </div>
+      <div class="arch-sub">
+        <div class="arch-sub-name">PrimeNest Wholesale</div>
+        <div class="arch-sub-desc">Bulk B2B export supply. Operational packaging, clear labeling, high-volume pricing. For industrial importers and processors.</div>
+      </div>
+    </div>
+  </div>
+
+  <table class="spec-table">
+    <thead>
+      <tr>
+        <th>Sub-Brand</th>
+        <th>Audience</th>
+        <th>Price Signal</th>
+        <th>Packaging Tier</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Reserve</td><td>Luxury retail, corporate gifting, HNW buyers</td><td>Premium ceiling</td><td>Rigid box, magnetic closure, certificate</td></tr>
+      <tr><td>Signature</td><td>Established importers, distributors</td><td>Premium mid</td><td>Branded export carton, clean inserts</td></tr>
+      <tr><td>Heritage</td><td>Cave nest connoisseurs, provenance buyers</td><td>Provenance premium</td><td>Collector-feel rigid box</td></tr>
+      <tr><td>Wholesale</td><td>Industrial importers, processors</td><td>Volume value</td><td>Export carton, operational labels</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     03 — LOGO SYSTEM
+════════════════════════════════════════════ -->
+<section class="section" id="logo-system">
+  <p class="section-eyebrow">03 — Identity</p>
+  <h2 class="section-title">Logo <em>System</em></h2>
+  <p class="section-intro">The PrimeNest logo family is built for flexibility across all touchpoints — from embossed packaging to digital favicons. Every version draws from the same visual DNA: refined serif letterforms, restrained proportions, and the P monogram mark.</p>
+
+  <div class="logo-zone">
+    <div class="logo-cell logo-cell-light">
+      <div class="logo-mark" style="color:var(--black);">P</div>
+      <div class="logo-wordmark logo-wordmark-black">PrimeNest<br><span style="font-size:12px;letter-spacing:.3em;font-weight:400;">GLOBAL</span></div>
+      <span class="logo-cell-label">Primary · Light BG</span>
+    </div>
+    <div class="logo-cell logo-cell-dark">
+      <div class="logo-mark" style="color:var(--gold);">P</div>
+      <div class="logo-wordmark logo-wordmark-gold">PrimeNest<br><span style="font-size:12px;letter-spacing:.3em;font-weight:400;">GLOBAL</span></div>
+      <span class="logo-cell-label">Primary · Dark BG</span>
+    </div>
+    <div class="logo-cell logo-cell-gold">
+      <div class="logo-mark" style="color:var(--black);">P</div>
+      <div class="logo-wordmark logo-wordmark-black">PrimeNest<br><span style="font-size:12px;letter-spacing:.3em;font-weight:400;">GLOBAL</span></div>
+      <span class="logo-cell-label">Primary · Gold BG</span>
+    </div>
+    <div class="logo-cell logo-cell-light">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="logo-mark" style="color:var(--black);width:28px;height:28px;font-size:13px;">P</div>
+        <span class="logo-wordmark logo-wordmark-black" style="font-size:14px;">PrimeNest <span style="letter-spacing:.22em;font-size:10px;">GLOBAL</span></span>
+      </div>
+      <span class="logo-cell-label">Horizontal · Secondary</span>
+    </div>
+    <div class="logo-cell logo-cell-dark">
+      <div class="logo-mark" style="color:var(--gold);width:48px;height:48px;font-size:22px;">P</div>
+      <span class="logo-cell-label">Submark / Icon Only</span>
+    </div>
+    <div class="logo-cell logo-cell-light">
+      <div style="width:32px;height:32px;background:var(--black);display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:var(--serif);font-size:18px;color:var(--gold);font-weight:300;">P</span>
+      </div>
+      <span class="logo-cell-label">Favicon · 32×32</span>
+    </div>
+  </div>
+
+  <div class="rule-grid-3">
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Clear Space Rule</p>
+      <p class="rule-body">Maintain minimum clear space equal to the cap height of the "P" on all sides of every logo variant. Never crowd the logo.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Colour Usage Rule</p>
+      <p class="rule-body">Black logo on ivory/white/beige. Gold logo on black/dark backgrounds. Black logo on gold background. Never invert this.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Prohibited Actions</p>
+      <p class="rule-body">Never stretch, rotate, recolor, add drop shadows, place on busy patterns, or alter letterforms. The logo is final.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     04 — COLOR PALETTE
+════════════════════════════════════════════ -->
+<section class="section" id="color">
+  <p class="section-eyebrow">04 — Visual Identity</p>
+  <h2 class="section-title">Color <em>Palette</em></h2>
+  <p class="section-intro">Every color is chosen for restraint. The palette evokes natural ivory, raw nest fiber, aged gold, and shadow. No color should demand attention — it should hold space for the product.</p>
+
+  <p style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:16px;">Primary Palette</p>
+  <div class="swatch-row">
+    <div class="swatch" style="background:#111111;">
+      <div class="swatch-label swatch-hex-light"><span class="swatch-name">Matte Black</span>#111111</div>
+    </div>
+    <div class="swatch" style="background:#F8F5EF;">
+      <div class="swatch-label swatch-hex"><span class="swatch-name">Soft Ivory</span>#F8F5EF</div>
+    </div>
+    <div class="swatch" style="background:#FCFBF8;">
+      <div class="swatch-label swatch-hex"><span class="swatch-name">Warm White</span>#FCFBF8</div>
+    </div>
+    <div class="swatch" style="background:#C8A96B;">
+      <div class="swatch-label swatch-hex"><span class="swatch-name">Champagne Gold</span>#C8A96B</div>
+    </div>
+    <div class="swatch" style="background:#E8DED1;">
+      <div class="swatch-label swatch-hex"><span class="swatch-name">Muted Beige</span>#E8DED1</div>
+    </div>
+    <div class="swatch" style="background:#B7A89A;">
+      <div class="swatch-label swatch-hex"><span class="swatch-name">Soft Taupe</span>#B7A89A</div>
+    </div>
+  </div>
+
+  <p style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin:32px 0 16px;">Accent Palette</p>
+  <div class="swatch-row">
+    <div class="swatch" style="background:#4F5B47;flex:0 0 200px;">
+      <div class="swatch-label swatch-hex-light"><span class="swatch-name">Deep Olive</span>#4F5B47</div>
+    </div>
+    <div class="swatch" style="background:#8C6E4A;flex:0 0 200px;">
+      <div class="swatch-label swatch-hex-light"><span class="swatch-name">Muted Bronze</span>#8C6E4A</div>
+    </div>
+    <div class="swatch" style="background:#8A847C;flex:0 0 200px;">
+      <div class="swatch-label swatch-hex-light"><span class="swatch-name">Warm Grey</span>#8A847C</div>
+    </div>
+  </div>
+
+  <table class="spec-table" style="margin-top:48px;">
+    <thead><tr><th>Color</th><th>Primary Use</th><th>Never Use For</th></tr></thead>
+    <tbody>
+      <tr><td>Matte Black #111111</td><td>Primary text, logo on light, hero sections, packaging base</td><td>Large body text blocks (use a lighter weight)</td></tr>
+      <tr><td>Soft Ivory #F8F5EF</td><td>Page backgrounds, card backgrounds, text on dark</td><td>Primary body text color</td></tr>
+      <tr><td>Champagne Gold #C8A96B</td><td>Accent lines, logo on dark, sub-brand highlights, foil stamping</td><td>Large fills, backgrounds, body text</td></tr>
+      <tr><td>Muted Beige #E8DED1</td><td>Secondary backgrounds, dividers, subtle containers</td><td>Text, interactive elements</td></tr>
+      <tr><td>Deep Olive #4F5B47</td><td>DO indicators, sustainability messaging, farm origin accents</td><td>Primary brand color</td></tr>
+    </tbody>
+  </table>
+
+  <div class="do-dont">
+    <div class="do-block">
+      <span class="do-label">✓ Gold Used Correctly</span>
+      <ul class="do-list">
+        <li>Thin accent lines and dividers</li>
+        <li>Logo reversed on dark backgrounds</li>
+        <li>Foil stamping on packaging</li>
+        <li>Eyebrow text and category labels</li>
+        <li>Single-weight embossed seals</li>
+      </ul>
+    </div>
+    <div class="dont-block">
+      <span class="dont-label">✕ Gold Used Incorrectly</span>
+      <ul class="dont-list">
+        <li>Full background fills in gold</li>
+        <li>Gold gradients or glows</li>
+        <li>Gold body text or paragraph copy</li>
+        <li>Bright yellow-gold substitutes</li>
+        <li>Metallic shine effects digitally</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     05 — TYPOGRAPHY
+════════════════════════════════════════════ -->
+<section class="section" id="typography">
+  <p class="section-eyebrow">05 — Visual Identity</p>
+  <h2 class="section-title"><em>Typography</em> System</h2>
+  <p class="section-intro">Two fonts. One hierarchy. Always. The serif carries emotional weight and luxury authority. The sans carries operational clarity and global readability. They never compete — they complete each other.</p>
+
+  <div class="type-specimen">
+    <p class="type-meta">Primary · Cormorant Garamond / Canela / Playfair Display · Headlines Only</p>
+    <div class="type-specimen-h1">Sourced at Origin.<br><em>Crafted by Hand.</em></div>
+    <div class="type-specimen-h2">The Gold Standard<br>in Malaysian Bird Nest</div>
+    <div class="type-specimen-h3">Direct From Our Swiftlet Houses in Kelantan</div>
+  </div>
+
+  <div class="type-specimen">
+    <p class="type-meta">Secondary · Inter / Neue Haas Grotesk / Helvetica Neue · Body, UI, Specifications</p>
+    <p style="font-size:16px;font-weight:300;line-height:1.8;margin-bottom:12px;">PrimeNest Global supplies premium edible bird nest directly from owner-operated swiftlet houses in Kelantan, Malaysia. Established in 2004, our operation spans multiple harvest cycles annually with consistent quality and documented traceability.</p>
+    <p style="font-size:13px;color:var(--grey);line-height:1.7;margin-bottom:12px;">Product Code: PNG-SIG-100G · Grade: 5A · Net Weight: 100g · Origin: Kelantan · Moisture: ≤12% · Minimum Order: 1kg</p>
+    <p style="font-size:11px;color:var(--taupe);letter-spacing:.08em;">CAPTION: All products are hand-cleaned and tested prior to export. Lab certificates available on request.</p>
+  </div>
+
+  <table class="spec-table">
+    <thead><tr><th>Level</th><th>Font</th><th>Size</th><th>Weight</th><th>Use Case</th></tr></thead>
+    <tbody>
+      <tr><td>H1 · Hero</td><td>Cormorant Garamond</td><td>72–96px</td><td>300 Light</td><td>Homepage hero, campaign headlines, cover pages</td></tr>
+      <tr><td>H2 · Section</td><td>Cormorant Garamond</td><td>40–52px</td><td>300 Light</td><td>Section titles, catalog chapter headers</td></tr>
+      <tr><td>H3 · Sub</td><td>Cormorant Garamond</td><td>24–32px</td><td>400 Regular</td><td>Product names, sub-section titles</td></tr>
+      <tr><td>Body</td><td>Inter</td><td>15–17px</td><td>300–400</td><td>Paragraph text, product descriptions, emails</td></tr>
+      <tr><td>Label / UI</td><td>Inter</td><td>11–13px</td><td>500–600</td><td>Navigation, buttons, form labels, table headers</td></tr>
+      <tr><td>Caption</td><td>Inter</td><td>10–12px</td><td>400</td><td>Photo credits, footnotes, specifications</td></tr>
+    </tbody>
+  </table>
+
+  <div class="rule-grid">
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Kerning &amp; Tracking</p>
+      <p class="rule-body">Headlines: −0.01em to −0.02em. Uppercase labels: +0.14em to +0.22em. Body: 0. Never auto-kern large display type.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Line Spacing</p>
+      <p class="rule-body">Display: 1.05–1.1. Headings: 1.2–1.3. Body: 1.7–1.8. Captions: 1.5. Never compress line height below these minimums.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Prohibited Combinations</p>
+      <p class="rule-body">Never mix more than two fonts. No decorative, script, or display novelty fonts. No bold body text as headlines. No italic sans-serif.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Italic Usage</p>
+      <p class="rule-body">Italic is for emphasis only within serif headlines. Never use italic in body copy for decoration. One italicized word or phrase per headline maximum.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     06 — LAYOUT PRINCIPLES
+════════════════════════════════════════════ -->
+<section class="section" id="layout">
+  <p class="section-eyebrow">06 — Design System</p>
+  <h2 class="section-title">Layout <em>Principles</em></h2>
+  <p class="section-intro">Every layout decision is a trust signal. Whitespace communicates confidence. Structure communicates reliability. Restraint communicates quality. These rules apply to every format — web, catalog, packaging insert, trade deck, or social post.</p>
+
+  <div class="rule-grid-3">
+    <div class="rule-cell">
+      <span class="rule-number">01</span>
+      <p class="rule-heading">Grid First</p>
+      <p class="rule-body">Use a 12-column grid on all digital layouts. Use defined column gutters on all print layouts. Nothing floats without grid alignment.</p>
+    </div>
+    <div class="rule-cell">
+      <span class="rule-number">02</span>
+      <p class="rule-heading">Whitespace as Design</p>
+      <p class="rule-body">Margins are not wasted space. They are active design elements. Minimum page margin: 80px web, 20mm print. Never fill every inch.</p>
+    </div>
+    <div class="rule-cell">
+      <span class="rule-number">03</span>
+      <p class="rule-heading">Product as Hero</p>
+      <p class="rule-body">The product image is always the dominant visual. Text and graphic elements support it. Never compete with the product image.</p>
+    </div>
+    <div class="rule-cell">
+      <span class="rule-number">04</span>
+      <p class="rule-heading">Visual Hierarchy</p>
+      <p class="rule-body">One primary element per layout zone. One headline dominates. One CTA per section. Never create competing focal points.</p>
+    </div>
+    <div class="rule-cell">
+      <span class="rule-number">05</span>
+      <p class="rule-heading">Asymmetry Rule</p>
+      <p class="rule-body">Asymmetry is allowed only when visually balanced by mass, not by decoration. Editorial asymmetry: yes. Random placement: never.</p>
+    </div>
+    <div class="rule-cell">
+      <span class="rule-number">06</span>
+      <p class="rule-heading">Consistency Lock</p>
+      <p class="rule-body">Every new layout must reference an approved layout. Component spacing, image ratios, and type sizes are not re-decided per project.</p>
+    </div>
+  </div>
+
+  <table class="spec-table">
+    <thead><tr><th>Context</th><th>Margin / Padding</th><th>Max Content Width</th><th>Grid Columns</th></tr></thead>
+    <tbody>
+      <tr><td>Website Desktop</td><td>80px horizontal</td><td>1280px</td><td>12</td></tr>
+      <tr><td>Website Mobile</td><td>24px horizontal</td><td>100%</td><td>4</td></tr>
+      <tr><td>Catalog / Print A4</td><td>20mm all sides</td><td>170mm content area</td><td>6</td></tr>
+      <tr><td>Social Square 1:1</td><td>48px safe zone</td><td>1080×1080px</td><td>4</td></tr>
+      <tr><td>Social Story 9:16</td><td>72px horizontal</td><td>1080×1920px</td><td>4</td></tr>
+      <tr><td>Presentation 16:9</td><td>64px all sides</td><td>1920×1080px</td><td>12</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     07 — UI SYSTEM
+════════════════════════════════════════════ -->
+<section class="section" id="ui-system">
+  <p class="section-eyebrow">07 — Design System</p>
+  <h2 class="section-title">UI <em>Design System</em></h2>
+  <p class="section-intro">Digital touchpoints — website, inquiry forms, product pages — must maintain the same premium restraint as physical materials. Every component is defined. Nothing is improvised.</p>
+
+  <div class="ui-demo">
+    <p style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin-bottom:20px;">Button System</p>
+    <div class="ui-btn-row">
+      <button class="ui-btn-primary">Request Wholesale Pricing</button>
+      <button class="ui-btn-secondary">Download Catalog</button>
+      <button class="ui-btn-ghost">View Export Documents</button>
+    </div>
+
+    <p style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin-bottom:20px;">Inquiry Form — Minimal Field Pattern</p>
+    <div class="ui-form">
+      <div class="ui-field">
+        <label class="ui-label">Company Name</label>
+        <input class="ui-input" type="text" placeholder="Your company name"/>
+      </div>
+      <div class="ui-field">
+        <label class="ui-label">Country</label>
+        <input class="ui-input" type="text" placeholder="Country of operation"/>
+      </div>
+      <div class="ui-field">
+        <label class="ui-label">Monthly Volume Required</label>
+        <input class="ui-input" type="text" placeholder="e.g. 50kg per month"/>
+      </div>
+      <div class="ui-field">
+        <label class="ui-label">Message</label>
+        <input class="ui-input" type="text" placeholder="Product interest or questions"/>
+      </div>
+      <button class="ui-btn-primary" style="margin-top:8px;">Submit Inquiry</button>
+    </div>
+
+    <p style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin:32px 0 20px;">Product Card System</p>
+    <div class="ui-card-row">
+      <div class="ui-card">
+        <div class="ui-card-img" style="background:var(--beige);"></div>
+        <div class="ui-card-body">
+          <div class="ui-card-tag">Reserve · Cave Nest</div>
+          <div class="ui-card-name">Sabah Cave Nest<br>Grade 5A</div>
+          <div class="ui-card-price">FOB Pricing Available on Request</div>
+        </div>
+      </div>
+      <div class="ui-card">
+        <div class="ui-card-img" style="background:#DDD8CF;"></div>
+        <div class="ui-card-body">
+          <div class="ui-card-tag">Signature · Dry Nest</div>
+          <div class="ui-card-name">Malaysian Dry<br>Bird Nest</div>
+          <div class="ui-card-price">FOB Pricing Available on Request</div>
+        </div>
+      </div>
+      <div class="ui-card">
+        <div class="ui-card-img" style="background:#E2DAD0;"></div>
+        <div class="ui-card-body">
+          <div class="ui-card-tag">Heritage · Golden Cave</div>
+          <div class="ui-card-name">Golden Cave Nest<br>Grade A</div>
+          <div class="ui-card-price">FOB Pricing Available on Request</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule-grid">
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Button Rules</p>
+      <p class="rule-body">All buttons use sharp edges (no border-radius). Consistent height: 48px. Font: Inter 500, 11–12px, +0.14em tracking, all-caps. Never rounded pill buttons.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Form Rules</p>
+      <p class="rule-body">Bottom-border-only inputs. No box outlines. Label above field, 10px uppercase, tracked. Maximum 6 fields per form. No CAPTCHA visible to user.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Navigation Rules</p>
+      <p class="rule-body">Maximum 5 primary nav items. No dropdown mega-menus. Mobile: slide-in panel, never hamburger with accordion. No sticky CTA bars.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Prohibited UI Patterns</p>
+      <p class="rule-body">No countdown timers. No popups within 10 seconds. No "SALE" banners. No chat widgets over product images. No autoplaying video with audio.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     08 — MOTION SYSTEM
+════════════════════════════════════════════ -->
+<section class="section" id="motion">
+  <p class="section-eyebrow">08 — Design System</p>
+  <h2 class="section-title">Motion <em>System</em></h2>
+  <p class="section-intro">Luxury brands move slowly. Every transition communicates brand character. Fast, jarring, or bouncy animations signal low quality. Slow, deliberate, and soft motion signals confidence.</p>
+
+  <div class="motion-row">
+    <div class="motion-cell">
+      <div class="motion-timing">800ms</div>
+      <p style="font-size:12px;font-weight:600;letter-spacing:.1em;margin-bottom:6px;">Page Transitions</p>
+      <p class="motion-desc">Fade in from opacity 0. Ease-out cubic-bezier. No slides, no scales, no bounces. Pure dissolve.</p>
+    </div>
+    <div class="motion-cell">
+      <div class="motion-timing">400ms</div>
+      <p style="font-size:12px;font-weight:600;letter-spacing:.1em;margin-bottom:6px;">UI Interactions</p>
+      <p class="motion-desc">Hover states, button transitions, link underlines. Ease-out. Never bounce. Never spring.</p>
+    </div>
+    <div class="motion-cell">
+      <div class="motion-timing">1200ms</div>
+      <p style="font-size:12px;font-weight:600;letter-spacing:.1em;margin-bottom:6px;">Hero Reveals</p>
+      <p class="motion-desc">Text fade + subtle upward drift (12px). Staggered by 160ms per element. Ease-out cubic.</p>
+    </div>
+    <div class="motion-cell">
+      <div class="motion-timing">2400ms</div>
+      <p style="font-size:12px;font-weight:600;letter-spacing:.1em;margin-bottom:6px;">Video / Reel Pacing</p>
+      <p class="motion-desc">Minimum clip length for social video. Slow pans, long dissolves, no jump cuts. Product breathes on screen.</p>
+    </div>
+  </div>
+
+  <div class="do-dont">
+    <div class="do-block">
+      <span class="do-label">✓ Motion Allowed</span>
+      <ul class="do-list">
+        <li>Slow opacity fades between scenes</li>
+        <li>Subtle Ken Burns on still photography</li>
+        <li>Gentle parallax scrolling (max 20% offset)</li>
+        <li>Clean crossfades in video</li>
+        <li>Smooth scroll-triggered text reveals</li>
+      </ul>
+    </div>
+    <div class="dont-block">
+      <span class="dont-label">✕ Motion Prohibited</span>
+      <ul class="dont-list">
+        <li>TikTok-speed fast cuts</li>
+        <li>Zoom-in punch transitions</li>
+        <li>Rotating, spinning, or bouncing elements</li>
+        <li>Glitch effects or distortion transitions</li>
+        <li>Music-sync beat-drop editing</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     09 — PRINT SYSTEM
+════════════════════════════════════════════ -->
+<section class="section" id="print">
+  <p class="section-eyebrow">09 — Design System</p>
+  <h2 class="section-title">Print <em>System</em></h2>
+  <p class="section-intro">Every physical touchpoint — business card, catalog, trade panel, certificate, shipping insert — must feel like it was produced under the same creative director. Print is where brand trust is most tangible.</p>
+
+  <table class="spec-table">
+    <thead><tr><th>Asset</th><th>Format</th><th>Paper / Material</th><th>Finish</th></tr></thead>
+    <tbody>
+      <tr><td>Business Card</td><td>90×55mm</td><td>400gsm Cotton Uncoated</td><td>Letterpress or foil stamp on one side</td></tr>
+      <tr><td>Wholesale Catalog</td><td>A4 Portrait</td><td>170gsm Silk / Matte Coated</td><td>Soft-touch laminate cover, sewn bind</td></tr>
+      <tr><td>Trade Show Panel</td><td>1000×2000mm</td><td>PVC Banner or Foamex</td><td>Matte laminate, no gloss</td></tr>
+      <tr><td>Origin Certificate</td><td>A5 Portrait</td><td>120gsm Laid / Textured</td><td>Gold foil seal, embossed letterhead</td></tr>
+      <tr><td>Packaging Insert</td><td>Custom per SKU</td><td>200gsm Uncoated</td><td>Single color or soft touch</td></tr>
+      <tr><td>Export Brochure</td><td>A5 Landscape Tri-fold</td><td>150gsm Matte Coated</td><td>Soft-touch laminate</td></tr>
+      <tr><td>Shipping Insert Card</td><td>90×140mm</td><td>350gsm Uncoated</td><td>Deboss or blind emboss logo</td></tr>
+    </tbody>
+  </table>
+
+  <div class="rule-grid">
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Bleed &amp; Safety</p>
+      <p class="rule-body">All print files: 3mm bleed all sides. Keep critical content 5mm from trim edge. Supply as print-ready PDF/X-1a or PDF/X-4.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Color Mode</p>
+      <p class="rule-body">All print: CMYK. Gold accent: Pantone 872C (metallic) or 871C where available. Never use RGB files for print production.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Fonts in Print</p>
+      <p class="rule-body">Always embed or outline fonts before export. Minimum body text size: 8pt. Minimum caption size: 6pt reversed on dark backgrounds.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Finish Standards</p>
+      <p class="rule-body">Never approve gloss laminate on any consumer-facing print. Matte or soft-touch only. Gloss is permitted only on internal shipping labels.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     10 — PHOTOGRAPHY
+════════════════════════════════════════════ -->
+<section class="section" id="photography">
+  <p class="section-eyebrow">10 — Production</p>
+  <h2 class="section-title">Photography <em>Art Direction</em></h2>
+  <p class="section-intro">Photography is PrimeNest's most powerful trust asset. Every image must pass as editorial — magazine-ready without heavy post-production. The product is always the truth, and the photography proves it.</p>
+
+  <div class="rule-grid">
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Lighting Direction</p>
+      <p class="rule-body">Soft directional natural light from one side. Window light or diffused studio strobe. Warm colour temperature: 4500–5500K. No direct flash. No harsh shadows. Subtle fill only.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Background Rules</p>
+      <p class="rule-body">Warm white, soft ivory, or matte stone/linen surfaces only. Never pure white (#FFFFFF) — it reads clinical. Never busy patterns. Keep background colour within the brand palette.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Camera Settings</p>
+      <p class="rule-body">Minimum 42MP for packshots. Macro lens for texture detail shots. Shallow depth of field allowed only for lifestyle context — never for hero product shots.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Post-Processing</p>
+      <p class="rule-body">Minimal retouching. Colour grade toward warm-neutral. No HDR. No aggressive clarity or texture sliders. The nest should look as it does in hand.</p>
+    </div>
+  </div>
+
+  <p style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px;">Bird Nest Product Photography — Hard Rules</p>
+  <div class="do-dont">
+    <div class="do-block">
+      <span class="do-label">✓ Correct Nest Representation</span>
+      <ul class="do-list">
+        <li>Natural ivory or cream-beige color tone</li>
+        <li>Visible woven fiber texture — real strands</li>
+        <li>Real handcrafted imperfections and variations</li>
+        <li>Accurate cup and boat nest shapes</li>
+        <li>Semi-translucent fibers visible in light</li>
+        <li>Natural feather traces where appropriate</li>
+        <li>Slight natural discoloration is authentic — keep it</li>
+      </ul>
+    </div>
+    <div class="dont-block">
+      <span class="dont-label">✕ Never Represent Nests As</span>
+      <ul class="dont-list">
+        <li>Pure white or over-bleached appearance</li>
+        <li>Glowing or luminous product renders</li>
+        <li>Plastic or polished smooth texture</li>
+        <li>Fluffy or cotton-like appearance</li>
+        <li>Fake CGI or 3D-rendered nests</li>
+        <li>Stacked in unrealistic perfect pyramids</li>
+        <li>Surrounded by Chinese herbal props</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rule-grid-3">
+    <div class="rule-cell">
+      <p class="rule-heading">Packshot Type</p>
+      <p class="rule-body">Isolated product on clean ivory surface. Straight-on and 45° angles. Consistent lighting rig across all SKUs so catalog feels uniform.</p>
+    </div>
+    <div class="rule-cell">
+      <p class="rule-heading">Lifestyle Type</p>
+      <p class="rule-body">Product in minimal luxury context: ceramic bowl, natural linen, wooden surface. One prop maximum. Never use props that reference traditional medicine.</p>
+    </div>
+    <div class="rule-cell">
+      <p class="rule-heading">Operational Type</p>
+      <p class="rule-body">Farm, harvest, processing, cleaning. Shot on-site. Natural available light preferred. Authenticity over polish — but composition must remain intentional.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     11 — PACKAGING
+════════════════════════════════════════════ -->
+<section class="section" id="packaging">
+  <p class="section-eyebrow">11 — Production</p>
+  <h2 class="section-title">Packaging <em>Hierarchy</em></h2>
+  <p class="section-intro">Packaging is the first physical brand experience. It must feel gift-worthy and export-premium. Every tier is defined — from luxury rigid boxes to operational export cartons — and each must remain consistent with the master brand.</p>
+
+  <div class="pack-grid">
+    <div class="pack-cell">
+      <span class="pack-tier">Tier 1 — Reserve · Luxury Retail &amp; Gifting</span>
+      <div class="pack-name">Rigid Gift Box</div>
+      <ul class="pack-specs">
+        <li>Rigid greyboard construction, 2mm wall</li>
+        <li>Magnetic closure, ribbon pull</li>
+        <li>Soft-touch exterior laminate in Ivory or Black</li>
+        <li>Debossed PrimeNest logo, no foil on exterior</li>
+        <li>Interior: velvet or foam tray insert</li>
+        <li>Origin certificate card, hand-signed</li>
+        <li>Gold foil seal on inner tissue wrap</li>
+        <li>Outer: kraft shipper with minimal label</li>
+      </ul>
+    </div>
+    <div class="pack-cell">
+      <span class="pack-tier">Tier 2 — Signature · Standard Export</span>
+      <div class="pack-name">Branded Export Carton</div>
+      <ul class="pack-specs">
+        <li>B-flute corrugated export carton</li>
+        <li>PrimeNest Signature branding, clean layout</li>
+        <li>Clear product specification label</li>
+        <li>Inner: clear resealable pouch or glass jar</li>
+        <li>Humidity indicator inside</li>
+        <li>Traceability code on every unit</li>
+        <li>Packing list pocket on carton exterior</li>
+      </ul>
+    </div>
+    <div class="pack-cell">
+      <span class="pack-tier">Tier 3 — Corporate Gifting</span>
+      <div class="pack-name">Premium Presentation Box</div>
+      <ul class="pack-specs">
+        <li>Rigid box with hinged lid, book-style open</li>
+        <li>Deep Matte Black or Warm Ivory exterior</li>
+        <li>Gold foil wordmark + monogram seal</li>
+        <li>Layered interior: silk ribbon, origin story card</li>
+        <li>Certificate of authenticity insert</li>
+        <li>QR code linking to farm traceability page</li>
+        <li>Optional branded calligraphy name card</li>
+      </ul>
+    </div>
+    <div class="pack-cell">
+      <span class="pack-tier">Tier 4 — Wholesale / Industrial</span>
+      <div class="pack-name">Operational Export Pack</div>
+      <ul class="pack-specs">
+        <li>Neutral export carton, minimal brand</li>
+        <li>Large clear specification label (bilingual)</li>
+        <li>Product code, lot number, harvest date</li>
+        <li>Weight, moisture content, grade marked</li>
+        <li>Inner food-grade moisture barrier bag</li>
+        <li>Pallet-ready labeling system</li>
+        <li>COA and phytosanitary doc pocket</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rule-grid-3">
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Finish Standards</p>
+      <p class="rule-body">Soft-touch laminate on all consumer packaging. Matte finish exterior. Gloss permitted only on labels inside the carton. Foil stamp only in Pantone 872C gold.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Typography on Pack</p>
+      <p class="rule-body">Logo in deboss or foil only. Product name in Cormorant Garamond. Specifications in Inter 400. All type must pass legibility test at 6pt minimum size.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Colour on Pack</p>
+      <p class="rule-body">Ivory, Matte Black, or Warm White as primary packaging surface. Gold foil accent only — never gold backgrounds. No red. No bright metallics.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     12 — SOCIAL MEDIA
+════════════════════════════════════════════ -->
+<section class="section" id="social">
+  <p class="section-eyebrow">12 — Production</p>
+  <h2 class="section-title">Social Media <em>System</em></h2>
+  <p class="section-intro">Every social post is a micro version of the brand. The same creative director governs the Instagram grid, the WeChat moments, the Xiaohongshu posts, and the LinkedIn updates. Consistency is the product.</p>
+
+  <table class="spec-table">
+    <thead><tr><th>Content Pillar</th><th>Frequency</th><th>Format</th><th>Visual Tone</th></tr></thead>
+    <tbody>
+      <tr><td>Product Beauty</td><td>2× per week</td><td>Single image or carousel</td><td>Packshot or lifestyle, ivory background, natural light</td></tr>
+      <tr><td>Source Transparency</td><td>1× per week</td><td>Photo + caption</td><td>Operational photography, farm, harvest, authentic</td></tr>
+      <tr><td>Processing &amp; Quality</td><td>1× per week</td><td>Short video (15–30s) or carousel</td><td>Slow editing, no music beat cuts, muted warmth</td></tr>
+      <tr><td>Educational</td><td>1× per week</td><td>Carousel or text slide</td><td>Clean white background, Inter type, gold accents</td></tr>
+      <tr><td>Buyer Trust</td><td>2× per month</td><td>Quote card or certificate visual</td><td>Document-style, premium, credibility-led</td></tr>
+      <tr><td>Seasonal / Campaign</td><td>Per campaign</td><td>Full creative set</td><td>Full brand world, consistent to guidelines</td></tr>
+    </tbody>
+  </table>
+
+  <div class="rule-grid">
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Grid Consistency</p>
+      <p class="rule-body">Instagram grid must feel unified when viewed as 9-post block. Alternate between product-dominant and operational/context posts. Never two similar frames adjacent.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Caption Style</p>
+      <p class="rule-body">Lead with a one-line brand statement. Follow with factual detail. End with an understated CTA. No hashtag dumps (maximum 5 targeted hashtags). No emojis in English content.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Platform Specifics</p>
+      <p class="rule-body">Instagram: editorial, aspirational. LinkedIn: operational, credibility. WeChat/Xiaohongshu: product detail, trust signals, Chinese-language caption required. WhatsApp: catalog PDF share only.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Story &amp; Reel Rules</p>
+      <p class="rule-body">Stories: no sticker overuse, no GIF animations, minimal text overlay. Reels: slow pacing, ambient sound or no music, minimum 10 seconds per scene.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     13 — CONTENT HIERARCHY
+════════════════════════════════════════════ -->
+<section class="section" id="content-hierarchy">
+  <p class="section-eyebrow">13 — Production</p>
+  <h2 class="section-title">Content <em>Hierarchy</em></h2>
+  <p class="section-intro">Every sales material — website page, catalog spread, ad creative, social post, or presentation slide — follows the same six-step messaging architecture. This ensures buyers receive information in the order that builds trust.</p>
+
+  <div class="content-stack">
+    <div class="content-step">
+      <span class="step-num">01</span>
+      <div class="step-body">
+        <div class="step-title">Product Beauty</div>
+        <div class="step-desc">Lead with the product image. Large, clean, hero-scale. No text competing. Let the product speak before any claim is made. This is the emotional entry point.</div>
+      </div>
+    </div>
+    <div class="content-step">
+      <span class="step-num">02</span>
+      <div class="step-body">
+        <div class="step-title">Source Transparency</div>
+        <div class="step-desc">Who we are. Where it comes from. Owner-operated. Kelantan since 2004. This is the trust anchor that separates PrimeNest from traders and brokers.</div>
+      </div>
+    </div>
+    <div class="content-step">
+      <span class="step-num">03</span>
+      <div class="step-body">
+        <div class="step-title">Product Specifications</div>
+        <div class="step-desc">Grade, form, weight, moisture content, shape classification, origin type. Clean table or structured copy. Buyers need this to make purchasing decisions. Be precise.</div>
+      </div>
+    </div>
+    <div class="content-step">
+      <span class="step-num">04</span>
+      <div class="step-body">
+        <div class="step-title">Export Capability</div>
+        <div class="step-desc">Monthly supply volume. Lead time. Documentation available. Customs compliance. Packaging options. This converts a qualified buyer into an active inquiry.</div>
+      </div>
+    </div>
+    <div class="content-step">
+      <span class="step-num">05</span>
+      <div class="step-body">
+        <div class="step-title">Trust Signals</div>
+        <div class="step-desc">Lab testing. Phytosanitary certificates. Export documentation. Farm photos. Real team. Traceable lot codes. Never generic claims — always specific, verifiable proof.</div>
+      </div>
+    </div>
+    <div class="content-step">
+      <span class="step-num">06</span>
+      <div class="step-body">
+        <div class="step-title">Inquiry Action</div>
+        <div class="step-desc">One clear, low-friction next step. WhatsApp, email, or inquiry form. No hard sell language. "Begin your inquiry" or "Request wholesale pricing" — never "Buy Now".</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     14 — TONE OF VOICE
+════════════════════════════════════════════ -->
+<section class="section" id="voice">
+  <p class="section-eyebrow">14 — Messaging</p>
+  <h2 class="section-title">Tone <em>of Voice</em></h2>
+  <p class="section-intro">Visual branding collapses the moment copy sounds wrong. Every word must pass the same restraint test as every design decision. PrimeNest speaks with the confidence of a company that does not need to convince — it simply shows.</p>
+
+  <div class="voice-grid">
+    <div class="voice-cell">
+      <span class="voice-label-good">✓ Write Like This</span>
+      <div class="voice-example">"Every nest traced to a single swiftlet house in Kelantan. Nothing more."</div>
+    </div>
+    <div class="voice-cell voice-cell-bad">
+      <span class="voice-label-bad">✕ Never Write Like This</span>
+      <div class="voice-example">"The BEST QUALITY Bird Nest with the HIGHEST GRADE at UNBEATABLE wholesale prices!!!"</div>
+    </div>
+    <div class="voice-cell">
+      <span class="voice-label-good">✓ Write Like This</span>
+      <div class="voice-example">"Our monthly supply capacity is consistent. We do not over-promise."</div>
+    </div>
+    <div class="voice-cell voice-cell-bad">
+      <span class="voice-label-bad">✕ Never Write Like This</span>
+      <div class="voice-example">"Unlimited stock available! Fast shipping worldwide! Best bird nest supplier in Malaysia!"</div>
+    </div>
+    <div class="voice-cell">
+      <span class="voice-label-good">✓ Write Like This</span>
+      <div class="voice-example">"Lab-certified. Export-documented. Origin-traceable. Available for qualified importers."</div>
+    </div>
+    <div class="voice-cell voice-cell-bad">
+      <span class="voice-label-bad">✕ Never Write Like This</span>
+      <div class="voice-example">"100% natural! Boosts immunity! Anti-aging superfood from ancient Chinese tradition!"</div>
+    </div>
+  </div>
+
+  <table class="spec-table">
+    <thead><tr><th>Attribute</th><th>What It Means in Practice</th></tr></thead>
+    <tbody>
+      <tr><td>Confident</td><td>State facts directly. No hedging. "Our swiftlet houses" not "our possibly owner-operated facilities."</td></tr>
+      <tr><td>Clean</td><td>Short sentences. No filler. Remove every word that does not add meaning.</td></tr>
+      <tr><td>Precise</td><td>Specific numbers over vague claims. "100kg per month minimum supply" beats "large quantity available."</td></tr>
+      <tr><td>Global</td><td>English first. Chinese always available. No regional slang. No informal abbreviations in formal copy.</td></tr>
+      <tr><td>Transparent</td><td>Name the farm. Name the region. Show the process. The more specific, the more trust.</td></tr>
+      <tr><td>Premium</td><td>Never mention price in headlines. Never use "cheap," "affordable," or "discount." Pricing is private and professional.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     15 — TRUST ASSETS
+════════════════════════════════════════════ -->
+<section class="section" id="trust">
+  <p class="section-eyebrow">15 — Messaging</p>
+  <h2 class="section-title">Trust <em>Asset System</em></h2>
+  <p class="section-intro">Luxury alone does not close export deals. Sophisticated buyers require operational proof. Trust assets are the evidence layer that converts brand interest into purchase orders. Every asset must be real, specific, and documented.</p>
+
+  <div class="rule-grid">
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Farm Ownership Proof</p>
+      <p class="rule-body">Photography of named swiftlet houses. GPS-tagged location reference. Owner present in operational imagery. Named, not anonymous — this is the primary differentiator from brokers.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Processing Transparency</p>
+      <p class="rule-body">Photo and video of the cleaning and sorting process. Show the hands. Show the tools. Show the environment. Real operational imagery beats any marketing render.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Traceability System</p>
+      <p class="rule-body">Each export batch carries a lot code traceable to harvest date, house location, and processing batch. Document this clearly. Build a QR-linked traceability page.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Export Documentation</p>
+      <p class="rule-body">Phytosanitary certificates. Health certificates. Certificate of Origin. Free Sale Certificate. COA (Certificate of Analysis). Keep templates clean and visually branded.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Lab Testing</p>
+      <p class="rule-body">Third-party lab test reports. Heavy metal, microbial, moisture content. Available on request, or summary published on website. Never make health claims not supported by documentation.</p>
+    </div>
+    <div class="rule-cell rule-cell-dark">
+      <p class="rule-heading">Supply Capacity Statement</p>
+      <p class="rule-body">Publish realistic monthly supply figures. Buyers need to qualify volume before engaging. "100kg+ per month available" is a trust signal. Ambiguity is a red flag to serious importers.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     16 — AI PROMPT RULES
+════════════════════════════════════════════ -->
+<section class="section" id="ai-prompts">
+  <p class="section-eyebrow">16 — AI Consistency</p>
+  <h2 class="section-title">AI Generation <em>Prompt Rules</em></h2>
+  <p class="section-intro">When using AI image generation tools (Midjourney, Firefly, DALL·E, Ideogram), every prompt must be anchored to the same visual brief. Inconsistent AI generation is the fastest way to fracture a brand. These templates are mandatory starting points.</p>
+
+  <div class="prompt-block">
+    <span class="prompt-label">Master Lighting &amp; Atmosphere Prompt Block — Append to Every Product Prompt</span>
+    <p class="prompt-text">"<em>soft directional window light from the left, warm 5000K colour temperature, natural shadows with soft edges, warm white or soft ivory background, no reflective surfaces, no harsh flash, no blue tones, no neon, no HDR, photorealistic documentary photography style, minimal post-processing, luxury editorial quality, clean negative space</em>"</p>
+  </div>
+
+  <div class="prompt-block">
+    <span class="prompt-label">Bird Nest Product Prompt — Required Base</span>
+    <p class="prompt-text">"<em>Malaysian edible bird nest, natural ivory cream colour, visible woven fiber texture, semi-translucent strands, realistic cup nest shape, natural handcrafted imperfections, slight variation in tone, soft diffused natural light, ivory or warm white stone surface, no glow, no CGI, no pure white, no fluffy cotton texture, no plastic sheen, close-up macro photography, luxury packshot quality</em>"</p>
+  </div>
+
+  <div class="prompt-block">
+    <span class="prompt-label">Operational / Farm Photography Prompt — Required Base</span>
+    <p class="prompt-text">"<em>real Malaysian swiftlet farm, Kelantan region, natural available light, warm humid atmosphere, documentary photography style, authentic operational environment, hands cleaning bird nest manually, no studio lighting, no artificial colour grading, high trust photojournalism quality, editorial authenticity</em>"</p>
+  </div>
+
+  <div class="do-dont">
+    <div class="do-block">
+      <span class="do-label">✓ AI Generation Allowed</span>
+      <ul class="do-list">
+        <li>Background textures: stone, linen, warm paper</li>
+        <li>Lifestyle context props that match brand palette</li>
+        <li>Pattern explorations for packaging backgrounds</li>
+        <li>Color palette mood boards and testing</li>
+        <li>Layout composition sketches</li>
+      </ul>
+    </div>
+    <div class="dont-block">
+      <span class="dont-label">✕ Never Generate with AI</span>
+      <ul class="dont-list">
+        <li>Final product photography (use real nests only)</li>
+        <li>Fake farm or facility imagery</li>
+        <li>Faces of workers or owners</li>
+        <li>Certificates or documents (must be real)</li>
+        <li>Any image that could mislead a buyer</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="spec-table">
+    <thead><tr><th>Variable</th><th>Locked Value — Do Not Change Per Generation</th></tr></thead>
+    <tbody>
+      <tr><td>Lighting Style</td><td>Soft directional natural light, warm 4500–5500K, no flash</td></tr>
+      <tr><td>Background Palette</td><td>Ivory #F8F5EF, Warm White #FCFBF8, or warm stone/linen only</td></tr>
+      <tr><td>Product Realism</td><td>Photorealistic documentary — no stylized or illustrated product</td></tr>
+      <tr><td>Camera Quality</td><td>Commercial packshot quality, minimum 42MP equivalent, no compression artifacts</td></tr>
+      <tr><td>Colour Grade</td><td>Warm-neutral, desaturated, no vivid colour pops, no cool tones</td></tr>
+      <tr><td>Visual Restraint</td><td>Clean negative space, single focal point, no busy compositions</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="divider"/>
+
+
+<!-- ═══════════════════════════════════════════
+     17 — MASTER RULE
+════════════════════════════════════════════ -->
+<div class="master-rule" id="master-rule">
+  <span class="master-rule-eyebrow">17 — The Final Rule</span>
+  <h2 class="master-rule-headline">One Company.<br><em>One Creative Director.</em><br>Every Touchpoint.</h2>
+  <p class="master-rule-body">If a website page, Instagram post, packaging box, catalog spread, trade show panel, or paid advertisement looks like it belongs to a different company — remove it immediately. PrimeNest Global must be instantly recognizable across every platform, every market, and every material. Nothing is random. Everything is intentional. If it does not pass this test, it does not ship.</p>
+  <div style="margin-top:48px;padding-top:40px;border-top:1px solid #2a2a2a;display:flex;justify-content:center;gap:64px;flex-wrap:wrap;">
+    <div style="text-align:center;">
+      <div style="font-family:var(--serif);font-size:36px;font-weight:300;color:var(--gold);">2004</div>
+      <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin-top:4px;">Est. Kelantan</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-family:var(--serif);font-size:36px;font-weight:300;color:var(--gold);">7+</div>
+      <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin-top:4px;">Export Markets</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-family:var(--serif);font-size:36px;font-weight:300;color:var(--gold);">4</div>
+      <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin-top:4px;">Product Lines</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-family:var(--serif);font-size:36px;font-weight:300;color:var(--gold);">1</div>
+      <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin-top:4px;">Brand Standard</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="background:var(--black);padding:40px 80px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;">
+  <div style="font-family:var(--serif);font-size:18px;color:var(--ivory);letter-spacing:.06em;">PrimeNest <span style="color:var(--gold);">Global</span></div>
+  <div style="font-size:11px;color:var(--grey);letter-spacing:.1em;">Brand System v1.0 · Confidential · 2026</div>
+  <div style="font-size:11px;color:var(--grey);">primenestglobal.com</div>
+</div>
+
+</main>
+</div>
+
+</body>
+</html>
