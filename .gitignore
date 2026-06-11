@@ -1,13 +1,16 @@
-# Claude / agent internals
-.agents/
-.claude/
-marketingskills/
-
 # Dependencies
 node_modules/
 
-# Build outputs (root level)
+# Build outputs
 dist/
+
+# Claude / agent internals
+.claude/
+.agents/
+marketingskills/
+
+# Submodule config
+.gitmodules
 
 # OS
 .DS_Store
