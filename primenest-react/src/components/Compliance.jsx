@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { FadeIn, StaggerContainer, StaggerItem } from './FadeIn'
 import { T } from '../contexts/LangContext'
 
@@ -38,13 +37,22 @@ const certs = [
     descEn: 'PrimeNest Global is a registered Malaysian business entity.',
     descZh: 'PrimeNest Global 为合法注册的马来西亚企业。',
   },
-  {
-    status: 'active', statusEn: 'On Request', statusZh: '可安排',
-    titleEn: 'ADDITIONAL CERTIFICATIONS', titleZh: '额外认证支持',
-    subEn: 'HACCP • GMP • HALAL • Export Market Requirements', subZh: 'HACCP · GMP · Halal · 出口市场认证要求',
-    descEn: 'Certification support available based on destination market requirements.',
-    descZh: '可根据进口国市场要求协助安排相关认证支持。',
-  },
+]
+
+const CheckIcon = () => (
+  <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect x="0.75" y="0.75" width="14.5" height="14.5" rx="1.5"
+      stroke="currentColor" strokeWidth="1.25"/>
+    <polyline points="3.5,8.5 6.5,11.5 12.5,4.5"
+      stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+
+const addlCerts = [
+  { code: 'HACCP', nameEn: 'Food Safety System',           nameZh: '食品安全体系' },
+  { code: 'GMP',   nameEn: 'Good Manufacturing Practice',  nameZh: '良好生产规范' },
+  { code: 'HALAL', nameEn: 'Halal Processing Support',     nameZh: '清真认证支持' },
+  { code: 'CNCA',  nameEn: 'China Export Compliance',      nameZh: '中国出口合规' },
 ]
 
 export default function Compliance() {
@@ -84,6 +92,34 @@ export default function Compliance() {
             </StaggerItem>
           ))}
         </StaggerContainer>
+
+        {/* ── ADDITIONAL CERTIFICATIONS panel ── */}
+        <FadeIn>
+          <div className="cert-panel">
+            <span className="cert-panel__eyebrow">
+              <T en="CERTIFICATION SUPPORT" zh="认证支持" />
+            </span>
+            <div className="cert-panel__items">
+              {addlCerts.map(({ code, nameEn, nameZh }, i) => (
+                <div key={i} className="cert-panel__item">
+                  <span className="cert-panel__check"><CheckIcon /></span>
+                  <div>
+                    <div className="cert-panel__code">{code}</div>
+                    <div className="cert-panel__sub">
+                      <T en={nameEn} zh={nameZh} />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="cert-panel__note">
+              <T
+                en="Certification support available based on destination market requirements."
+                zh="可根据进口国市场要求协助安排相关认证支持。"
+              />
+            </p>
+          </div>
+        </FadeIn>
 
         <FadeIn>
           <p className="cert-note">
