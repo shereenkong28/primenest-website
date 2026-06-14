@@ -4,7 +4,7 @@ export const houseNestTabs = [
     nameEn: "Dry-Picked Bird's Nest",
     nameZh: '干挑燕窝',
     badge: null,
-    image: null,
+    image: "/dry-picked-v3.jpg",
     imageScale: 1.0,
     descEn: "Carefully hand-cleaned using the dry-picking method. No soaking or reshaping. Preserves the nest's natural structure and visible fibers.",
     descZh: '纯手工干挑清洁，不泡发、不重塑。保留燕窝天然结构与清晰可见的天然纤维。',
