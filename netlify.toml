@@ -1,7 +1,7 @@
 [build]
   base    = "primenest-react"
   command = "npm run build"
-  publish = "primenest-react/dist"
+  publish = "dist"
 
 [[headers]]
   for = "/*"
