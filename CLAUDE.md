@@ -17,7 +17,8 @@ Build command:
 npm run build
 
 Correct publish directory:
-primenest-react/dist
+dist
+(relative to base primenest-react/ — do NOT write primenest-react/dist in netlify.toml)
 
 DO NOT create another React app.
 DO NOT create another dist folder.
