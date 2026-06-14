@@ -1,11 +1,9 @@
 import { useEffect } from 'react'
-import { initGA4 } from '../analytics'
 
-// Invisible component — renders nothing, initialises GA4 once on mount.
+// Invisible component — renders nothing.
+// GA4 is loaded via the static <script> in index.html (G-2BFKYCF30X).
+// Custom click events are tracked via window.gtag from analytics/index.js.
 export default function Analytics() {
-  useEffect(() => {
-    initGA4()
-  }, [])
 
   // Suppress right-click context menu on all images and videos globally.
   // Covers every component without needing per-element handlers.
