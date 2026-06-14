@@ -26,11 +26,13 @@ function ProductCard({ product, lang }) {
       transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="wp-featured-card__img">
+        {product.image && (
         <img
           src={product.image}
           alt={product.nameEn}
           style={{ transform: `scale(${product.imageScale || 1.2})`, transformOrigin: 'center center' }}
         />
+        )}
         {product.badge && (
           <span className="wp-card__badge">
             <T en={product.badge.en} zh={product.badge.zh} />
