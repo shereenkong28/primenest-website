@@ -1,0 +1,10 @@
+[build]
+  base    = "primenest-react"
+  command = "npm run build"
+  publish = "primenest-react/dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
