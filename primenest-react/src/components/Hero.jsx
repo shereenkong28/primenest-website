@@ -54,25 +54,33 @@ export default function Hero() {
 
       {/* ── FULL-BLEED VIDEO ── */}
       <motion.div className="hero2__media" style={{ scale: videoScale }}>
-        {/* Desktop 16:9 — hidden on mobile, not downloaded via preload=none */}
+        {/* Desktop 16:9 — hidden on mobile */}
         <video
-          className="hero2__video hero2__video--desktop"
+          className="hero2__video hero2__video--desktop hero-video"
           src="/hero.mp4"
           autoPlay
           muted
           loop
           playsInline
+          disablePictureInPicture
+          disableRemotePlayback
+          controlsList="nodownload nofullscreen noremoteplayback"
           preload="auto"
+          onContextMenu={(e) => e.preventDefault()}
         />
-        {/* Mobile 9:16 portrait — hidden on desktop, preload=none saves bandwidth */}
+        {/* Mobile 9:16 portrait — hidden on desktop */}
         <video
-          className="hero2__video hero2__video--mobile"
+          className="hero2__video hero2__video--mobile hero-video"
           src="/hero-mobile.mp4"
           autoPlay
           muted
           loop
           playsInline
+          disablePictureInPicture
+          disableRemotePlayback
+          controlsList="nodownload nofullscreen noremoteplayback"
           preload="none"
+          onContextMenu={(e) => e.preventDefault()}
         />
       </motion.div>
 
