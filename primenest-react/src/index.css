@@ -1203,82 +1203,22 @@ h2 em, h3 em, h4 em { font-style: italic; color: var(--gold); font-weight: 300; 
 .cert-card p { font-size: .85rem; color: var(--grey-light); line-height: 1.7; }
 .cert-note { text-align: center; margin-top: 2.5rem; font-size: .82rem; color: var(--grey); max-width: 640px; margin-inline: auto; }
 
-/* ─── CERTIFICATION SUPPORT panel ─── */
-.cert-panel {
-  margin-top: 1.75rem;
-  padding: 2rem 1.75rem;
-  background: var(--black-2);
-  border: 1px solid rgba(201,168,76,.12);
-  border-radius: var(--radius);
-  transition: border-color var(--ease), transform var(--ease), box-shadow var(--ease);
-}
-.cert-panel:hover {
-  border-color: rgba(201,168,76,.4);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(201,168,76,0.1);
-}
-.cert-panel__eyebrow {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 400;
-  letter-spacing: -.005em;
-  color: var(--white);
-  margin-bottom: 1.25rem;
-}
-.cert-panel__items {
-  display: flex;
-  align-items: flex-start;
-  gap: 2.5rem;
-}
-.cert-panel__item {
-  display: flex;
-  align-items: flex-start;
-  gap: .5rem;
-  flex-shrink: 0;
-}
-.cert-panel__check {
-  width: 14px;
-  height: 14px;
+/* Certification Support card — gold tick items */
+.cert-card__items { display: flex; flex-direction: column; gap: .7rem; margin-top: .25rem; }
+.cert-card__item { display: flex; align-items: flex-start; gap: .5rem; }
+.cert-card__check {
+  width: 14px; height: 14px;
   color: var(--gold);
   flex-shrink: 0;
   margin-top: 2px;
 }
-.cert-panel__check svg { width: 100%; height: 100%; }
-.cert-panel__code {
-  font-size: .78rem;
-  font-weight: 500;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  margin-bottom: .2rem;
+.cert-card__check svg { width: 100%; height: 100%; }
+.cert-card__code {
+  font-size: .78rem; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: .15rem;
 }
-.cert-panel__sub {
-  font-size: .62rem;
-  color: var(--grey);
-  line-height: 1.45;
-}
-.cert-panel__note {
-  margin-top: 1rem;
-  padding-top: .85rem;
-  border-top: 1px solid rgba(201,168,76,.07);
-  font-size: .85rem;
-  color: var(--grey-light);
-  line-height: 1.7;
-}
-
-/* Tablet + Mobile: 2×2 compact grid */
-@media (max-width: 768px) {
-  .cert-panel { padding: .9rem 1rem .8rem; margin-top: 1.25rem; }
-  .cert-panel__eyebrow { margin-bottom: .7rem; }
-  .cert-panel__items {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: .65rem 1.25rem;
-  }
-  .cert-panel__check { width: 13px; height: 13px; }
-  .cert-panel__note { margin-top: .8rem; padding-top: .7rem; }
-}
+.cert-card__item-sub { font-size: .62rem; color: var(--grey); line-height: 1.45; }
 
 /* ─── WHOLESALE PRICING ─── */
 .wp-group { margin-bottom: 3.5rem; }

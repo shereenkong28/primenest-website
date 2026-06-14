@@ -1,6 +1,21 @@
 import { FadeIn, StaggerContainer, StaggerItem } from './FadeIn'
 import { T } from '../contexts/LangContext'
 
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M2 7l3.5 3.5L12 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
+
+const certSupportItems = [
+  { code: 'HACCP', subEn: 'Hazard Analysis Critical Control Points', subZh: '危害分析关键控制点' },
+  { code: 'GMP',   subEn: 'Good Manufacturing Practice',             subZh: '良好生产规范' },
+  { code: 'HALAL', subEn: 'Halal Certification',                     subZh: '清真认证' },
+  { code: 'CNCA',  subEn: 'China Import Registration',               subZh: '中国进口注册认证' },
+]
+
 const certs = [
   {
     status: 'active', statusEn: 'Confirmed', statusZh: '已确认',
@@ -40,12 +55,9 @@ const certs = [
   {
     status: 'active', statusEn: 'On Request', statusZh: '可安排',
     titleEn: 'CERTIFICATION SUPPORT', titleZh: '认证支持',
-    subEn: 'HACCP · GMP · HALAL · CNCA', subZh: 'HACCP · GMP · HALAL · CNCA',
-    descEn: 'Certification support available through certified partners based on destination market requirements.',
-    descZh: '可根据进口国市场要求，通过认证合作方安排相关认证支持。',
+    items: certSupportItems,
   },
 ]
-
 
 export default function Compliance() {
   return (
@@ -79,8 +91,25 @@ export default function Compliance() {
                 <T en={c.statusEn} zh={c.statusZh} />
               </span>
               <h3><T en={c.titleEn} zh={c.titleZh} /></h3>
-              <div className="cert-card__sub"><T en={c.subEn} zh={c.subZh} /></div>
-              <p><T en={c.descEn} zh={c.descZh} /></p>
+
+              {c.items ? (
+                <div className="cert-card__items">
+                  {c.items.map((item, j) => (
+                    <div key={j} className="cert-card__item">
+                      <span className="cert-card__check"><CheckIcon /></span>
+                      <div>
+                        <div className="cert-card__code">{item.code}</div>
+                        <div className="cert-card__item-sub"><T en={item.subEn} zh={item.subZh} /></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <>
+                  <div className="cert-card__sub"><T en={c.subEn} zh={c.subZh} /></div>
+                  <p><T en={c.descEn} zh={c.descZh} /></p>
+                </>
+              )}
             </StaggerItem>
           ))}
         </StaggerContainer>
