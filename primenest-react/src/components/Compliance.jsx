@@ -1,10 +1,11 @@
 import { FadeIn, StaggerContainer, StaggerItem } from './FadeIn'
 import { T } from '../contexts/LangContext'
 
-function CheckIcon() {
+function GoldCheckBox() {
   return (
     <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M2 7l3.5 3.5L12 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+      <rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" strokeWidth="1.4"/>
+      <path d="M3.5 7l2.5 2.5L10.5 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   )
 }
@@ -53,9 +54,10 @@ const certs = [
     descZh: 'PrimeNest Global 为合法注册的马来西亚企业。',
   },
   {
-    status: 'active', statusEn: 'On Request', statusZh: '可安排',
     titleEn: 'CERTIFICATION SUPPORT', titleZh: '认证支持',
     items: certSupportItems,
+    noteEn: 'Certification support available based on destination market requirements.',
+    noteZh: '可根据目的地市场要求安排相关认证支持。',
   },
 ]
 
@@ -87,23 +89,30 @@ export default function Compliance() {
               whileHover={{ y: -5, boxShadow: '0 12px 32px rgba(201,168,76,0.1)' }}
               transition={{ type: 'spring', stiffness: 280, damping: 22 }}
             >
-              <span className={`cert-card__status cert-card__status--${c.status}`}>
-                <T en={c.statusEn} zh={c.statusZh} />
-              </span>
+              {c.statusEn && (
+                <span className={`cert-card__status cert-card__status--${c.status}`}>
+                  <T en={c.statusEn} zh={c.statusZh} />
+                </span>
+              )}
               <h3><T en={c.titleEn} zh={c.titleZh} /></h3>
 
               {c.items ? (
-                <div className="cert-card__items">
-                  {c.items.map((item, j) => (
-                    <div key={j} className="cert-card__item">
-                      <span className="cert-card__check"><CheckIcon /></span>
-                      <div>
-                        <div className="cert-card__code">{item.code}</div>
-                        <div className="cert-card__item-sub"><T en={item.subEn} zh={item.subZh} /></div>
+                <>
+                  <div className="cert-card__items">
+                    {c.items.map((item, j) => (
+                      <div key={j} className="cert-card__item">
+                        <span className="cert-card__check"><GoldCheckBox /></span>
+                        <div>
+                          <div className="cert-card__code">{item.code}</div>
+                          <div className="cert-card__item-sub"><T en={item.subEn} zh={item.subZh} /></div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                  {c.noteEn && (
+                    <p className="cert-card__note"><T en={c.noteEn} zh={c.noteZh} /></p>
+                  )}
+                </>
               ) : (
                 <>
                   <div className="cert-card__sub"><T en={c.subEn} zh={c.subZh} /></div>

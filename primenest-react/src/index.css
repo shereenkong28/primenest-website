@@ -1214,11 +1214,12 @@ h2 em, h3 em, h4 em { font-style: italic; color: var(--gold); font-weight: 300; 
 }
 .cert-card__check svg { width: 100%; height: 100%; }
 .cert-card__code {
-  font-size: .78rem; font-weight: 500;
+  font-size: .68rem; font-weight: 500;
   letter-spacing: .12em; text-transform: uppercase;
-  color: var(--gold-light); margin-bottom: .15rem;
+  color: var(--gold-light); margin-bottom: .12rem;
 }
-.cert-card__item-sub { font-size: .62rem; color: var(--grey); line-height: 1.45; }
+.cert-card__item-sub { font-size: .58rem; color: var(--grey); line-height: 1.4; }
+.cert-card__note { font-size: .78rem; color: var(--grey-light); line-height: 1.6; margin-top: .85rem; }
 
 /* ─── WHOLESALE PRICING ─── */
 .wp-group { margin-bottom: 3.5rem; }
