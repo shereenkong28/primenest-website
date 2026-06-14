@@ -1170,8 +1170,14 @@ h2 em, h3 em, h4 em { font-style: italic; color: var(--gold); font-weight: 300; 
 /* ─── COMPLIANCE ─── */
 .cert-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+}
+@media (max-width: 900px) {
+  .cert-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 580px) {
+  .cert-grid { grid-template-columns: 1fr; }
 }
 .cert-card {
   background: var(--black-2);
