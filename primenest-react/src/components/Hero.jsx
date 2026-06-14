@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { useRef } from 'react'
 import { T, useLang } from '../contexts/LangContext'
+import { events } from '../analytics'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -115,6 +116,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               className="hero2__btn"
+              onClick={() => events.getQuoteClick('hero')}
             >
               <T en="Get Wholesale Quote" zh="获取批发报价" />
             </a>

@@ -2,15 +2,11 @@
 // PrimeNest Global — Google Analytics 4 Configuration
 // ============================================================
 //
-// HOW TO ACTIVATE:
-//   1. Go to analytics.google.com
-//   2. Admin → Data Streams → select your stream
-//   3. Copy the Measurement ID (format: G-XXXXXXXXXX)
-//   4. Paste it below as the value of GA4_MEASUREMENT_ID
-//   5. Save the file — analytics will activate automatically
+// Measurement ID is safe to commit — it appears in browser source
+// regardless. Override via VITE_GA_MEASUREMENT_ID env var if needed.
 //
-// Leave as empty string '' to keep analytics disabled.
+// To change the ID: update the string below, commit, and redeploy.
 // ============================================================
 
-// ▼ Paste your GA4 Measurement ID here (e.g. 'G-XXXXXXXXXX')
-export const GA4_MEASUREMENT_ID = ''
+export const GA4_MEASUREMENT_ID =
+  import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-2BFKYCF30X'

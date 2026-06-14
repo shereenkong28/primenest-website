@@ -46,6 +46,10 @@ export const events = {
   emailClick: () =>
     track('email_click'),
 
+  // Fired when a visitor clicks the hero "Get Wholesale Quote" CTA
+  getQuoteClick: (location) =>
+    track('get_quote_click', { click_location: location }),
+
   // Fired when a visitor switches product tabs
   productTabClick: (productName, category) =>
     track('product_tab_click', { product_name: productName, category }),
