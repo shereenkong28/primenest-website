@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLang, T } from '../contexts/LangContext'
+import PWAInstallButton from './PWAInstallButton'
 
 const WA_NUMBER = '601172287202'
 const WA_MSG_ZH = encodeURIComponent('您好，我想了解以下产品报价：\n\n产品：\n采购数量：\n目的国家：')
@@ -108,6 +109,7 @@ export default function Navbar() {
             >
               <T en="Get Quote" zh="获取报价" />
             </a>
+            <PWAInstallButton variant="mobile-menu" />
           </motion.div>
         )}
       </AnimatePresence>

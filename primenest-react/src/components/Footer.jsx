@@ -1,5 +1,6 @@
 import { FadeIn, StaggerContainer, StaggerItem } from './FadeIn'
 import { T } from '../contexts/LangContext'
+import PWAInstallButton from './PWAInstallButton'
 
 export default function Footer() {
   return (
@@ -69,6 +70,10 @@ export default function Footer() {
           </StaggerItem>
 
         </StaggerContainer>
+
+        <FadeIn>
+          <PWAInstallButton variant="footer" />
+        </FadeIn>
 
         <FadeIn>
           <div className="footer__legal">
